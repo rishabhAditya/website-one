@@ -17,14 +17,14 @@
   </head>
   <body>
     <!-- what needs to be shown in the webpage -->
+    {% include "nav.html" %}
     <div">
-      <h1 class="text-center mt-2 mb-4" style="color: rgb(80, 80, 80)">JOBs</h1>
       <h2 class="text-center" style="color: red">Find your DREAM JOB now</h2>
       <img id="banner" class="mb-4" src="https://website-one.rishabhaditya2.repl.co/static/dream.jpg">
 
     </div>
     <div class="container">
-      <h2 >About JOBs</h2>
+      <h2 class="text-center" style="color: rgb(80,80,80)">About JOBs</h2>
       <p class="text-justify lead">
         Welcome to our job hunting website! Our goal is to help job seekers find their dream job and connect with prospective employers.
         We understand that job hunting can be a stressful and time-consuming process, which is why we've created an easy-to-use platform to make your search easier and more efficient. At our job hunting website, we value transparency and honesty. That's why we work hard to ensure that all job listings are accurate and up-to-date. We also strive to provide a positive user experience, so if you have any feedback or suggestions for improvement, please don't hesitate to contact us.
@@ -37,20 +37,21 @@
         <!--{{j}}-->
           {% for job in j %}
             <div class="border bottom pt-2 ps-4 pb-4 mb-4 row">
-              <div class="col-9">
+              <div class="col-9 ">
                 <div><h4>{{job["title"]}}</h4></div>
                 <div><b>Location</b>: {{job["location"]}}</div>
                 {% if "salary" in job %}
                   <div><b>Salary</b>: {{job["salary"]}}</div>
                 {% endif %}
               </div>
-              <div class="col-1 pt-4 ps-4">
-                <button type="button" class="btn btn-outline-primary">Apply</button>
+              <div class="col-1 pt-4 ps-5">
+                <button type="button" class="btn btn-outline-primary ">Apply</button>
               </div>
             </div>
           {% endfor %}
         </div>
       </div>
     </div>
+    {% include "foot.html" %}
   </body>
 </html>
