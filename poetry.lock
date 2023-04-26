@@ -36,6 +36,37 @@ async = ["asgiref (>=3.2)"]
 dotenv = ["python-dotenv"]
 
 [[package]]
+name = "flask-htmldoom"
+version = "0.2.1"
+description = "htmldoom integration for Flask"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Flask = "*"
+htmldoom = ">=1"
+
+[package.extras]
+dev = ["pytest-cov (>=2.7.1)", "black (>=19.3b0)", "tox (>=3.12.1)", "pytest (>=4.4.1)"]
+testing = ["pytest (>=4.4.1)", "pytest-cov (>=2.7.1)", "black (>=19.3b0)"]
+
+[[package]]
+name = "htmldoom"
+version = "1.0.1"
+description = "An intuitive, high performance HTML rendering framework"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pyyaml = "*"
+
+[package.extras]
+dev = ["pyyaml", "pytest (>=4.4.1)", "pytest-cov (>=2.7.1)", "black (>=19.3b0)", "mypy (>=0.710)", "lxml (>=4.3.4)", "tox (>=3.12.1)", "markdown2"]
+testing = ["pyyaml", "pytest (>=4.4.1)", "pytest-cov (>=2.7.1)", "black (>=19.3b0)", "mypy (>=0.710)", "lxml (>=4.3.4)"]
+
+[[package]]
 name = "itsdangerous"
 version = "2.1.2"
 description = "Safely pass data to untrusted environments and back."
@@ -66,6 +97,50 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "mysql-connector-python"
+version = "8.0.33"
+description = "MySQL driver written in Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+protobuf = ">=3.11.0,<=3.20.3"
+
+[package.extras]
+compression = ["lz4 (>=2.1.6,<=4.3.2)", "zstandard (>=0.12.0,<=0.19.0)"]
+dns-srv = ["dnspython (>=1.16.0,<=2.3.0)"]
+gssapi = ["gssapi (>=1.6.9,<=1.8.2)"]
+
+[[package]]
+name = "protobuf"
+version = "3.20.3"
+description = "Protocol Buffers"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "pymysql"
+version = "1.0.3"
+description = "Pure Python MySQL Driver"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+ed25519 = ["PyNaCl (>=1.4.0)"]
+rsa = ["cryptography"]
+
+[[package]]
+name = "pyyaml"
+version = "6.0"
+description = "YAML parser and emitter for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "werkzeug"
 version = "2.2.3"
 description = "The comprehensive WSGI web application library."
@@ -82,13 +157,19 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "20babc257a59ef5d9f1d8c4495e5c875e63508b9a500784f0be51367ce6e8359"
+content-hash = "ae6bc2bbe9f093a26527e62d9266ffcda0839772ecddca7073dda6b8b6f67a29"
 
 [metadata.files]
 click = []
 colorama = []
 flask = []
+flask-htmldoom = []
+htmldoom = []
 itsdangerous = []
 jinja2 = []
 markupsafe = []
+mysql-connector-python = []
+protobuf = []
+pymysql = []
+pyyaml = []
 werkzeug = []
