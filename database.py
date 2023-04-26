@@ -28,3 +28,14 @@ def fetch_fromId(id):
   cursor.execute(select1)
   profile_info = cursor.fetchall()
   return (profile_info)
+
+def insert_data(id,fullname,email,linkedin,app_status):
+  insert1 = 'insert into users(id,fullname,email,linkedin,app_status) values(%s,%s,%s,%s,%s)'
+  cursor.execute(insert1,(id,fullname,email,linkedin,app_status))
+  connection.commit()
+
+def show_info(email):
+  select1 ='select * from users where email=%s'
+  cursor.execute(select1,(email,))
+  profile_info = cursor.fetchall()
+  return (profile_info)
