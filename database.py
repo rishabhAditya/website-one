@@ -23,3 +23,8 @@ select0_5 = 'select * from profiles'
 cursor.execute(select0_5)
 users_table = cursor.fetchall()
 
+def fetch_fromId(id):
+  select1 =f'select * from profiles where id={id}'
+  cursor.execute(select1)
+  profile_info = cursor.fetchall()
+  return (profile_info)
