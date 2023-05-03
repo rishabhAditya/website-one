@@ -35,7 +35,8 @@ def insert_data(id,fullname,email,linkedin,app_status):
   connection.commit()
 
 def show_info(email):
-  select1 ='select * from users where email=%s'
+  #select1 ='select * from users where email=%s'
+  select1 ='select profiles.title, profiles.company, users.user_id, users.app_status from profiles join users on profiles.id = users.id where users.email=%s'
   cursor.execute(select1,(email,))
   profile_info = cursor.fetchall()
   return (profile_info)

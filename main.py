@@ -2,31 +2,7 @@ from flask import Flask, render_template, jsonify, request
 from database import users_table,fetch_fromId,insert_data,show_info
 app = Flask(__name__)
 
-# jobs= [
-#   {
-    
-#     "id1":1,
-#     "title":"Data Analyst",
-#     "location":"Delhi",
-#     "salary":500000
-  
-#   },
-#   {
-    
-#     "id1":2,
-#     "title":"Web developer",
-#     "location":"Delhi"
-  
-#   },
-#    {
-    
-#     "id1":3,
-#     "title":"Cyber Engineer",
-#     "location":"WFH",
-#     "salary":7600000
-  
-#   }
-# ]
+
 jobs= users_table
 @app.route('/')
 def start():
@@ -64,13 +40,20 @@ def show():
   data = request.form
   e = data['useremail']
   data=show_info(e)
-  print(data[0]['app_status'])
-  if data[0]['app_status']<0:
-    response= 'Your application has been rejected.'
-  elif data[0]['app_status']==0:
-    response= 'Your application will be processed shortly.'
-  elif data[0]['app_status']==1:
-    response= 'Your application has been selected. Recruitors will reach you. '
+  print(data)
+  response=""
+  for jobs in data:
+    response+= f'Application id={jobs["user_id"]} <br>'
+    response+= f'{jobs["title"]} : {jobs["company"]} <br>'
+    if jobs['app_status']<0:
+      response+= 'Your application has been rejected.'
+    elif jobs['app_status']==0:
+      response+= 'Your application will be processed shortly.'
+    elif jobs['app_status']==1:
+      response+= 'Your application has been selected. Recruitors will reach you. <br><br>'
+    
+  
+ 
   response+= '<br><a href="/">Home</a><br>'
   return response
   
